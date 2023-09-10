@@ -6,6 +6,8 @@ The data structures that our group used were homogeneous data structures. We use
 15 pts - Code for data structure and how to run:
  https://github.com/chriscahill88/MegaMinx A link to the code for the megaminx and randomizer can be found here to test the code.
 In order to run this you need to install the latest version of python. Tkinter is the standard GUI library for python, which means it should already be included. On VScode there should be a play button to run the code. Once it does a window will show up as shown below:Dee
+
+
 15 pts - Example of GUI output:
 
 In the File
