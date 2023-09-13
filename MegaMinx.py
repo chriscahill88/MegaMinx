@@ -59,6 +59,7 @@ class MegaminxGUI:
         # This method is called when a sticker is clicked
         context_menu = tk.Menu(self.master, tearoff=0)
         context_menu.add_command(label="Rotate Face Clockwise", command=lambda f=face: self.rotate_face_clockwise(f))
+        context_menu.add_command(label="Rotate Face Counter Clockwise", command=lambda f=face: self.rotate_face_counterclockwise(f))
         context_menu.post(self.master.winfo_pointerx(), self.master.winfo_pointery())
 
     def rotate_face_clockwise(self, face):
@@ -458,7 +459,449 @@ class MegaminxGUI:
             self.stickers[9][8]["text"] = self.stickers[10][8]["text"]
             self.stickers[10][8]["text"] = self.stickers[3][8]["text"]
             self.stickers[3][8]["text"] = temp_text3
+    
+    
+    def rotate_face_counterclockwise(self, face):
+        if face == 0:
+            # Rotate the BLUE FACE (0) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
 
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            temp_text1 = self.stickers[2][0]["text"]
+            self.stickers[2][0]["text"] = self.stickers[3][2]["text"]
+            self.stickers[3][2]["text"] = self.stickers[4][4]["text"]
+            self.stickers[4][4]["text"] = self.stickers[5][6]["text"]
+            self.stickers[5][6]["text"] = self.stickers[1][8]["text"]
+            self.stickers[1][8]["text"] = temp_text1
+            temp_text2 = self.stickers[2][1]["text"]
+            self.stickers[2][1]["text"] = self.stickers[3][3]["text"]
+            self.stickers[3][3]["text"] = self.stickers[4][5]["text"]
+            self.stickers[4][5]["text"] = self.stickers[5][7]["text"]
+            self.stickers[5][7]["text"] = self.stickers[1][9]["text"]
+            self.stickers[1][9]["text"] = temp_text2
+            temp_text3 = self.stickers[2][2]["text"]
+            self.stickers[2][2]["text"] = self.stickers[3][4]["text"]
+            self.stickers[3][4]["text"] = self.stickers[4][6]["text"]
+            self.stickers[4][6]["text"] = self.stickers[5][8]["text"]
+            self.stickers[5][8]["text"] = self.stickers[1][0]["text"]
+            self.stickers[1][0]["text"] = temp_text3
+        elif face == 1:
+            # Rotate the Yellow FACE (1) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[5][4]["text"]
+            self.stickers[5][4]["text"] = self.stickers[6][6]["text"]
+            self.stickers[6][6]["text"] = self.stickers[8][8]["text"]
+            self.stickers[8][8]["text"] = self.stickers[2][2]["text"]
+            self.stickers[2][2]["text"] = self.stickers[0][2]["text"]
+            self.stickers[0][2]["text"] = temp_text1
+            temp_text2 = self.stickers[5][5]["text"]
+            self.stickers[5][5]["text"] = self.stickers[6][7]["text"]
+            self.stickers[6][7]["text"] = self.stickers[8][9]["text"]
+            self.stickers[8][9]["text"] = self.stickers[2][3]["text"]
+            self.stickers[2][3]["text"] = self.stickers[0][3]["text"]
+            self.stickers[0][3]["text"] = temp_text2
+            temp_text3 = self.stickers[5][6]["text"]
+            self.stickers[5][6]["text"] = self.stickers[6][8]["text"]
+            self.stickers[6][8]["text"] = self.stickers[8][0]["text"]
+            self.stickers[8][0]["text"] = self.stickers[2][4]["text"]
+            self.stickers[2][4]["text"] = self.stickers[0][4]["text"]
+            self.stickers[0][4]["text"] = temp_text3
+        
+        elif face == 2:
+            # Rotate the Lime FACE (2) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[3][4]["text"]
+            self.stickers[3][4]["text"] = self.stickers[0][4]["text"]
+            self.stickers[0][4]["text"] = self.stickers[1][6]["text"]
+            self.stickers[1][6]["text"] = self.stickers[8][4]["text"]
+            self.stickers[8][4]["text"] = self.stickers[11][6]["text"]
+            self.stickers[11][6]["text"] = temp_text1
+            temp_text2 = self.stickers[3][5]["text"]
+            self.stickers[3][5]["text"] = self.stickers[0][5]["text"]
+            self.stickers[0][5]["text"] = self.stickers[1][7]["text"]
+            self.stickers[1][7]["text"] = self.stickers[8][5]["text"]
+            self.stickers[8][5]["text"] = self.stickers[11][7]["text"]
+            self.stickers[11][7]["text"] = temp_text2
+            temp_text3 = self.stickers[3][6]["text"]
+            self.stickers[3][6]["text"] = self.stickers[0][6]["text"]
+            self.stickers[0][6]["text"] = self.stickers[1][8]["text"]
+            self.stickers[1][8]["text"] = self.stickers[8][6]["text"]
+            self.stickers[8][6]["text"] = self.stickers[11][8]["text"]
+            self.stickers[11][8]["text"] = temp_text3   
+        
+        elif face == 3:
+           # Rotate the Pink FACE (3) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[11][4]["text"]
+            self.stickers[11][4]["text"] = self.stickers[2][8]["text"]
+            self.stickers[2][8]["text"] = self.stickers[0][6]["text"]
+            self.stickers[0][6]["text"] = self.stickers[4][6]["text"]
+            self.stickers[4][6]["text"] = self.stickers[10][4]["text"]
+            self.stickers[10][4]["text"] = temp_text1
+            temp_text2 = self.stickers[11][5]["text"]
+            self.stickers[11][5]["text"] = self.stickers[2][9]["text"]
+            self.stickers[2][9]["text"] = self.stickers[0][7]["text"]
+            self.stickers[0][7]["text"] = self.stickers[4][7]["text"]
+            self.stickers[4][7]["text"] = self.stickers[10][5]["text"]
+            self.stickers[10][5]["text"] = temp_text2
+            temp_text3 = self.stickers[11][6]["text"]
+            self.stickers[11][6]["text"] = self.stickers[2][0]["text"]
+            self.stickers[2][0]["text"] = self.stickers[0][8]["text"]
+            self.stickers[0][8]["text"] = self.stickers[4][8]["text"]
+            self.stickers[4][8]["text"] = self.stickers[10][6]["text"]
+            self.stickers[10][6]["text"] = temp_text3
+        
+        elif face == 4:
+            # Rotate the Red FACE (4) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[0][8]["text"]
+            self.stickers[0][8]["text"] = self.stickers[5][8]["text"]
+            self.stickers[5][8]["text"] = self.stickers[7][2]["text"]
+            self.stickers[7][2]["text"] = self.stickers[10][2]["text"]
+            self.stickers[10][2]["text"] = self.stickers[3][0]["text"]
+            self.stickers[3][0]["text"] = temp_text1
+            temp_text2 = self.stickers[0][9]["text"]
+            self.stickers[0][9]["text"] = self.stickers[5][9]["text"]
+            self.stickers[5][9]["text"] = self.stickers[7][3]["text"]
+            self.stickers[7][3]["text"] = self.stickers[10][3]["text"]
+            self.stickers[10][3]["text"] = self.stickers[3][1]["text"]
+            self.stickers[3][1]["text"] = temp_text2
+            temp_text3 = self.stickers[0][0]["text"]
+            self.stickers[0][0]["text"] = self.stickers[5][0]["text"]
+            self.stickers[5][0]["text"] = self.stickers[7][4]["text"]
+            self.stickers[7][4]["text"] = self.stickers[10][4]["text"]
+            self.stickers[10][4]["text"] = self.stickers[3][2]["text"]
+            self.stickers[3][2]["text"] = temp_text3
+        
+        elif face == 5:
+            # Rotate the White FACE (5) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[1][0]["text"]
+            self.stickers[1][0]["text"] = self.stickers[6][8]["text"]
+            self.stickers[6][8]["text"] = self.stickers[7][0]["text"]
+            self.stickers[7][0]["text"] = self.stickers[4][2]["text"]
+            self.stickers[4][2]["text"] = self.stickers[0][0]["text"]
+            self.stickers[0][0]["text"] = temp_text1
+            temp_text2 = self.stickers[1][1]["text"]
+            self.stickers[1][1]["text"] = self.stickers[6][9]["text"]
+            self.stickers[6][9]["text"] = self.stickers[7][1]["text"]
+            self.stickers[7][1]["text"] = self.stickers[4][3]["text"]
+            self.stickers[4][3]["text"] = self.stickers[0][1]["text"]
+            self.stickers[0][1]["text"] = temp_text2
+            temp_text3 = self.stickers[1][2]["text"]
+            self.stickers[1][2]["text"] = self.stickers[6][0]["text"]
+            self.stickers[6][0]["text"] = self.stickers[7][2]["text"]
+            self.stickers[7][2]["text"] = self.stickers[4][4]["text"]
+            self.stickers[4][4]["text"] = self.stickers[0][2]["text"]
+            self.stickers[0][2]["text"] = temp_text3
+        
+        elif face == 6:
+            # Rotate the Purple FACE (6) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[8][0]["text"]
+            self.stickers[8][0]["text"] = self.stickers[9][0]["text"]
+            self.stickers[9][0]["text"] = self.stickers[7][8]["text"]
+            self.stickers[7][8]["text"] = self.stickers[5][2]["text"]
+            self.stickers[5][2]["text"] = self.stickers[1][2]["text"]
+            self.stickers[1][2]["text"] = temp_text1
+            temp_text2 = self.stickers[8][1]["text"]
+            self.stickers[8][1]["text"] = self.stickers[9][1]["text"]
+            self.stickers[9][1]["text"] = self.stickers[7][9]["text"]
+            self.stickers[7][9]["text"] = self.stickers[5][3]["text"]
+            self.stickers[5][3]["text"] = self.stickers[1][3]["text"]
+            self.stickers[1][3]["text"] = temp_text2
+            temp_text3 = self.stickers[8][2]["text"]
+            self.stickers[8][2]["text"] = self.stickers[9][2]["text"]
+            self.stickers[9][2]["text"] = self.stickers[7][0]["text"]
+            self.stickers[7][0]["text"] = self.stickers[5][4]["text"]
+            self.stickers[5][4]["text"] = self.stickers[1][4]["text"]
+            self.stickers[1][4]["text"] = temp_text3
+        
+        elif face == 7:
+            # Rotate the Green FACE (7) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[6][0]["text"]
+            self.stickers[6][0]["text"] = self.stickers[9][2]["text"]
+            self.stickers[9][2]["text"] = self.stickers[10][0]["text"]
+            self.stickers[10][0]["text"] = self.stickers[4][0]["text"]
+            self.stickers[4][0]["text"] = self.stickers[5][0]["text"]
+            self.stickers[5][0]["text"] = temp_text1
+            temp_text2 = self.stickers[6][1]["text"]
+            self.stickers[6][1]["text"] = self.stickers[9][3]["text"]
+            self.stickers[9][3]["text"] = self.stickers[10][1]["text"]
+            self.stickers[10][1]["text"] = self.stickers[4][1]["text"]
+            self.stickers[4][1]["text"] = self.stickers[5][1]["text"]
+            self.stickers[5][1]["text"] = temp_text2
+            temp_text3 = self.stickers[6][2]["text"]
+            self.stickers[6][2]["text"] = self.stickers[9][4]["text"]
+            self.stickers[9][4]["text"] = self.stickers[10][2]["text"]
+            self.stickers[10][2]["text"] = self.stickers[4][2]["text"]
+            self.stickers[4][2]["text"] = self.stickers[5][2]["text"]
+            self.stickers[5][2]["text"] = temp_text3
+        
+        elif face == 8:
+            # Rotate the Orange FACE (8) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[11][8]["text"]
+            self.stickers[11][8]["text"] = self.stickers[9][8]["text"]
+            self.stickers[9][8]["text"] = self.stickers[6][4]["text"]
+            self.stickers[6][4]["text"] = self.stickers[1][4]["text"]
+            self.stickers[1][4]["text"] = self.stickers[2][4]["text"]
+            self.stickers[2][4]["text"] = temp_text1
+            temp_text2 = self.stickers[11][9]["text"]
+            self.stickers[11][9]["text"] = self.stickers[9][9]["text"]
+            self.stickers[9][9]["text"] = self.stickers[6][5]["text"]
+            self.stickers[6][5]["text"] = self.stickers[1][5]["text"]
+            self.stickers[1][5]["text"] = self.stickers[2][5]["text"]
+            self.stickers[2][5]["text"] = temp_text2
+            temp_text3 = self.stickers[11][0]["text"]
+            self.stickers[11][0]["text"] = self.stickers[9][0]["text"]
+            self.stickers[9][0]["text"] = self.stickers[6][6]["text"]
+            self.stickers[6][6]["text"] = self.stickers[1][6]["text"]
+            self.stickers[1][6]["text"] = self.stickers[2][6]["text"]
+            self.stickers[2][6]["text"] = temp_text3
+        
+        elif face == 9:
+            # Rotate the Teal FACE (9) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[11][0]["text"]
+            self.stickers[11][0]["text"] = self.stickers[10][8]["text"]
+            self.stickers[10][8]["text"] = self.stickers[7][8]["text"]
+            self.stickers[7][8]["text"] = self.stickers[6][2]["text"]
+            self.stickers[6][2]["text"] = self.stickers[8][2]["text"]
+            self.stickers[8][2]["text"] = temp_text1
+            temp_text2 = self.stickers[11][1]["text"]
+            self.stickers[11][1]["text"] = self.stickers[10][9]["text"]
+            self.stickers[10][9]["text"] = self.stickers[7][9]["text"]
+            self.stickers[7][9]["text"] = self.stickers[6][3]["text"]
+            self.stickers[6][3]["text"] = self.stickers[8][3]["text"]
+            self.stickers[8][3]["text"] = temp_text2
+            temp_text3 = self.stickers[11][4]["text"]
+            self.stickers[11][2]["text"] = self.stickers[10][0]["text"]
+            self.stickers[10][0]["text"] = self.stickers[7][0]["text"]
+            self.stickers[7][0]["text"] = self.stickers[6][4]["text"]
+            self.stickers[6][4]["text"] = self.stickers[8][4]["text"]
+            self.stickers[8][4]["text"] = temp_text3
+        
+        elif face == 10:
+            # Rotate the Gold FACE (10) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[3][6]["text"]
+            self.stickers[3][6]["text"] = self.stickers[4][8]["text"]
+            self.stickers[4][8]["text"] = self.stickers[7][4]["text"]
+            self.stickers[7][4]["text"] = self.stickers[9][4]["text"]
+            self.stickers[9][4]["text"] = self.stickers[11][2]["text"]
+            self.stickers[11][2]["text"] = temp_text1
+            temp_text2 = self.stickers[3][7]["text"]
+            self.stickers[3][7]["text"] = self.stickers[4][9]["text"]
+            self.stickers[4][9]["text"] = self.stickers[7][5]["text"]
+            self.stickers[7][5]["text"] = self.stickers[9][5]["text"]
+            self.stickers[9][5]["text"] = self.stickers[11][3]["text"]
+            self.stickers[11][3]["text"] = temp_text2
+            temp_text3 = self.stickers[3][8]["text"]
+            self.stickers[3][8]["text"] = self.stickers[4][0]["text"]
+            self.stickers[4][0]["text"] = self.stickers[7][6]["text"]
+            self.stickers[7][6]["text"] = self.stickers[9][6]["text"]
+            self.stickers[9][6]["text"] = self.stickers[11][4]["text"]
+            self.stickers[11][4]["text"] = temp_text3
+        
+        elif face == 11:
+            # Rotate the Silver FACE (11) counterclockwise 
+            new_stickers = [[0]*10 for _ in range(12)]
+            for sticker in range(10):
+                if sticker > 1:
+                    new_stickers[face][(sticker-2)%10] = self.stickers[face][sticker]["text"]
+                elif sticker == 0:
+                    new_stickers[face][8] = self.stickers[face][sticker]["text"]
+                elif sticker == 1:
+                    new_stickers[face][9] = self.stickers[face][sticker]["text"]
+
+            # Update labels with new positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker]
+
+            # Swap Faces with corresponding sticker positions
+            for sticker in range(10):
+                self.stickers[face][sticker]["text"] = new_stickers[face][sticker] 
+            temp_text1 = self.stickers[2][6]["text"]
+            self.stickers[2][6]["text"] = self.stickers[3][6]["text"]
+            self.stickers[3][6]["text"] = self.stickers[10][6]["text"]
+            self.stickers[10][6]["text"] = self.stickers[9][6]["text"]
+            self.stickers[9][6]["text"] = self.stickers[8][4]["text"]
+            self.stickers[8][4]["text"] = temp_text1
+            temp_text2 = self.stickers[2][7]["text"]
+            self.stickers[2][7]["text"] = self.stickers[3][7]["text"]
+            self.stickers[3][7]["text"] = self.stickers[10][7]["text"]
+            self.stickers[10][7]["text"] = self.stickers[9][7]["text"]
+            self.stickers[9][7]["text"] = self.stickers[8][5]["text"]
+            self.stickers[8][5]["text"] = temp_text2
+            temp_text3 = self.stickers[2][8]["text"]
+            self.stickers[2][8]["text"] = self.stickers[3][8]["text"]
+            self.stickers[3][8]["text"] = self.stickers[10][8]["text"]
+            self.stickers[10][8]["text"] = self.stickers[9][8]["text"]
+            self.stickers[9][8]["text"] = self.stickers[8][6]["text"]
+            self.stickers[8][6]["text"] = temp_text3
     def solve(self):
         # Implement the solving logic here
         messagebox.showinfo("Solved", "Megaminx solved!")
